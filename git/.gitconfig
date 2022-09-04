@@ -1,0 +1,5 @@
+[user]
+	email = vnaud@student.42angouleme.fr
+	name = vnaud
+[core]
+	excludesfile = ~/.gitignore
