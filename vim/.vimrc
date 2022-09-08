@@ -31,6 +31,10 @@ set updatetime=500
 "so the auto detect "rxvt-unicode-256color" doesn't work
 "set term=xterm-256color
 
+call plug#begin()
+Plug 'romainl/vim-qf'
+call plug#end()
+
 "==============================================================================
 "User interface
 "==============================================================================
@@ -57,13 +61,14 @@ set wildmenu
 set wildmode=longest:full,list:full
 
 "Diable bell completely
-set visualbell
-set t_vb=
+"set visualbell
+"set t_vb=
 
 "Color the column after textwidth, usually the 80th
-if version >= 703
-	set colorcolumn=+1
-endif
+"highlight ColorColumn ctermbg=darkgray
+"if version >= 703
+"	set colorcolumn=+1
+"endif
 
 "Display whitespaces characters
 "set list
@@ -76,13 +81,13 @@ syntax on
 set mouse=a
 
 "Briefly show matchin braces, parens, etc
-set showmatch
-
-"Enable line wrapping
-set wrap
+"set showmatch
 
 "Wrap on column 80
 set textwidth=79
+
+"Enable line wrapping
+"set wrap
 
 "Disable preview window on completion
 set completeopt=longest,menuone
@@ -100,6 +105,10 @@ set title
 let g:user42='vnaud'
 let g:mail42='vnaud@student.42angouleme.fr'
 
+"Make the new window appear on the right
+set splitright
+"Make the new window appear below
+set splitbelow
 
 "==============================================================================
 "Search options
@@ -142,6 +151,29 @@ set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
 
 "Always show status line
 set laststatus=2
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Set <Shift + F1> as map leader
+let mapleader = ","
+
+" Open the quickfix window if there are errors, or close it if there are no
+" errors left
+noremap <leader>cw :botright :cw<cr>
+
+" Run make silently, then skip the 'Press ENTER to continue'
+noremap <leader>m :silent! :make! \| :redraw!<cr>
+
+" Run make re not silently, then skip the 'Press ENTER to continue'
+noremap <leader>mr :silent! :make re \| :redraw!<cr>
+
+" Run make clean not silently, then skip the 'Press ENTER to continue'
+noremap <leader>mc :silent! :make clean \| :redraw!<cr>
+
+" Run make fclean not silently, then skip the 'Press ENTER to continue'
+noremap <leader>mfc :silent! :make fclean \| :redraw!<cr>
 
 "==============================================================================
 "Function comment in C files
