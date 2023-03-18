@@ -1,16 +1,7 @@
-alias GCC='gcc -Wall -Wextra -Werror -g'
-alias C++='c++ -Wall -Wextra -Werror'
+alias GCC='clang -Wall -Wextra -Werror -g'
+alias C++='c++ -Wall -Wextra -Werror -g'
 alias norme='norminette -R CheckForbiddenHeaderSource'
 alias normeh='norminette -R CheckDefine'
-
-function pushswap() {
-	ARG=$(seq 1 $1 | shuf | tr '\n' ' ')
-	[ -f tmp ] && rm -f tmp
-	./push_swap $ARG > tmp
-	cat tmp | wc -l
-	cat tmp | ./checker_linux $ARG
-	rm -f tmp
-}
 
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="zsh2000"
