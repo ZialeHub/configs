@@ -2,7 +2,6 @@ set autoread
 set encoding=utf-8
 set noswapfile
 set hidden
-set updatetime=500
 call plug#begin()
 Plug 'romainl/vim-qf'
 Plug 'rust-lang/rust.vim'
@@ -30,11 +29,10 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 set statusline=\ %F\ %M\ %Y\ %R%=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ cpl:\ %c\ percent:\ %p%%
-set laststatus=2
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
+set laststatus=2
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
